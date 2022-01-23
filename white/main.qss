@@ -1,0 +1,133 @@
+QMainWindow {
+    border: orange;
+    border-radius: 5%;
+    color : orange;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+    stop:0 white,stop:1 orange);
+    margin: 0;
+    padding: 0;
+}
+Tab, BrowserTab {
+    padding: 0;
+    margin: 0;
+}
+QTabWidget::tab-bar {
+    left: 5px; /* move to the right by 5px */
+    background: transparent;
+}
+
+/* Style the tab using the tab sub-control. Note that
+    it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+    background: rgba(255, 255, 255, 0.5);
+    border-bottom: none; /* same as the pane color */
+    min-width: 10ex;
+    padding: 5px;
+    color: orange;
+}
+QTabBar::tab:hover {
+    border-top: 2px solid black;
+}
+QTabBar::tab:selected {
+    border-top: 2px solid black;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: none;
+}
+QTabBar::tab:first:!selected {
+    border-left: none;
+}
+
+QTabBar::tab:last:!selected {
+    border-right: none;
+}
+QToolBar {
+    background: transparent;
+    spacing: 3px;
+    border: 1px solid orange;
+}
+QToolButton {
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+}
+QToolButton:hover {
+    background: rgba(0, 0, 139, 0.5);
+}
+QToolButton#add_new_tab {
+    color: white;
+}
+QToolButton#add_new_tab:hover {
+    background: rgba(0, 0, 139, 0.5);
+    color: orange;
+}
+QLineEdit {
+    border: none;
+    background: transparent;
+    color: black;
+}
+QStatusBar {
+    background: transparent;
+    color: orange;
+    border: 2px solid orange;
+}
+QLabel {
+    color: white;
+}
+QProgressBar {
+    border: 2px solid grey;
+    border-radius: 5px;
+    color: orange;
+    text-align: center;
+    height: 20px;
+}
+
+QProgressBar::chunk {
+    background-color: white;
+    width: 20px;
+}
+QToolButton QMenu {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+    stop:0 white,stop:1 orange); /* sets background of the menu */
+    border: 1px solid white;
+    color: white;
+}
+
+QToolButton QMenu::item {
+    /* sets background of menu item. set this to something non-transparent
+        if you want menu color and menu item color to be different */
+    background-color: transparent;
+}
+
+QToolButton QMenu::item:selected { /* when user selects item using mouse or keyboard */
+    background-color: rgba(0, 0, 139, 0.5);
+}
+QScrollBar:horizontal {
+    border: 2px solid grey;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+    stop:0 white,stop:1 orange);
+    height: 15px;
+    margin: 0px 20px 0 20px;
+}
+QScrollBar::handle:horizontal {
+    background: transparent;
+    min-width: 20px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: rgba(255, 255, 255, 0.5);
+    min-width: 20px;
+}
+QScrollBar::add-line:horizontal {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
