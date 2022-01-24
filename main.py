@@ -28,7 +28,7 @@ class BrowserTab(QMainWindow):
         super(BrowserTab, self).__init__(parent)
         self.mainWindow = Main
         self.browser = BrowserEngineView(self.mainWindow)
-        self.browser.load(QUrl("https://www.google.com"))
+        self.browser.load(QUrl("https://www.duckduckgo.com"))
         self.setCentralWidget(self.browser)
         self.navigation_bar = QToolBar('Navigation')
         self.navigation_bar.setIconSize(QSize(16, 16))
@@ -74,12 +74,17 @@ class BrowserTab(QMainWindow):
 
     def navigate_to_url(self):
         s = QUrl(self.url_text_bar.text())
-        if s.scheme() == '':
-            s.setScheme('http')
-        self.browser.load(s)
+        if s.isValid():
+            if s.scheme() == '':
+                s.setScheme('http')
+            self.browser.load(s)
+        else: 
+            sg = QUrl("https://duckduckgo.com/%s" % s)
+            self.browser.load(sg)
+
 
     def navigate_to_home(self):
-        s = QUrl("https://www.google.com/")
+        s = QUrl("https://www.duckduckgo.com/")
         self.browser.load(s)
 
     def renew_urlbar(self, s):
@@ -129,7 +134,7 @@ class BrowserWindow(QMainWindow):
 
     def add_new_tab(self):
         new = BrowserTab(self)
-        new.browser.load(QUrl("https://www.google.com/"))
+        new.browser.load(QUrl("https://www.duckduckgo.com/"))
         self.add_tab(new)
 
     def add_tab(self, tab):
