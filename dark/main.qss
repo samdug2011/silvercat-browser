@@ -55,6 +55,7 @@ QToolButton:hover {
 }
 QToolButton#add_new_tab {
     color: white;
+    width: 40px;
 }
 QToolButton#add_new_tab:hover {
     background: rgba(0, 0, 139, 0.5);
