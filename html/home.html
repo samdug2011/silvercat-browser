@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<link rel="icon" type="image/png" href="../logo.svg"/>
+<link rel="icon" type="image/png" href="../logo.png"/>
 <meta content="utf-8" http-equiv="encoding">
 <meta name="google" value="notranslate">
 <style>
@@ -18,7 +18,7 @@
 .myBnt {
     text-indent: -99999px;
     padding-right: 5px;
-    background-image: url('../images/search.png');
+    background-image: url('search.png');
     background-position: 10px 8px;
     background-repeat: no-repeat;
     left: 71.5%;
@@ -37,18 +37,28 @@
 p {
     text-align:center;
 }
+img {
+    width: 200px;
+}
 </style>
 <meta content="utf-8" http-equiv="encoding">
 </head>
 <body>
-<form method="get" action="https://duckduckgo.com/" style="text-align:center; margin-top: 30vh; transform: translateY(-50%);">
+<form onsubmit="return check();" method="get" action="https://duckduckgo.com/" style="text-align:center; margin-top: 30vh; transform: translateY(-50%);" name="searchform">
 <p>
-<img src="../logo.svg" />
+<img src="../logo.png" />
 </p>
 <div class="search">
 <input type="search" name="q" autocomplete="off" class="myInput" style="width: 90%;border: none;height: 0;">
-<input type="submit" value="Rechercher" alt="Lancer la recherche!" class="myBnt myInput">
+<input type="submit" value="Rechercher" alt="Lancer la recherche!" class="myBnt myInput" onclick="check()">
 </div>
 </form>
+<script>
+    function check() {
+      let x = document.forms["searchform"]["q"].value;
+      if (x == "") {
+        return false;
+    }
+</script>
 </body>
 </html>
